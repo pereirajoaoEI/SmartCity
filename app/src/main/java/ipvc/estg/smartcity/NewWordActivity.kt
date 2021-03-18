@@ -24,8 +24,9 @@ class NewWordActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(titleNovo.text)&&TextUtils.isEmpty(descricaoNova.text)) {
+            if (TextUtils.isEmpty(titleNovo.text)||TextUtils.isEmpty(descricaoNova.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
+
             } else {
                 val title = titleNovo.text.toString()
                 val descricao = descricaoNova.text.toString()

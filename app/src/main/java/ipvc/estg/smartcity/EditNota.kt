@@ -37,8 +37,11 @@ class EditNota  : AppCompatActivity() {
         val button = findViewById<Button>(R.id.buttonEdit)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(titleEdit.text)&& TextUtils.isEmpty(descricaoEdit.text)) {
+            if (TextUtils.isEmpty(titleEdit.text) || TextUtils.isEmpty(descricaoEdit.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
+                wordViewModel.allWords.observe(this) { notas-> titleEdit.text=SpannableStringBuilder(notas[position].titulo)
+                    descricaoEdit.text=SpannableStringBuilder(notas[position].descricao)}
+                Toast.makeText(this, "Por favor preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
                 val title = titleEdit.text.toString()
                 val descricao = descricaoEdit.text.toString()
@@ -47,9 +50,10 @@ class EditNota  : AppCompatActivity() {
                     replyIntent.putExtra(EXTRA_REPLY_descricao_edit, descricao)
                     replyIntent.putExtra(EXTRA_REPLY_position, position)
                     setResult(Activity.RESULT_OK, replyIntent)
+                finish()
 
             }
-            finish()
+
         }
     }
 
