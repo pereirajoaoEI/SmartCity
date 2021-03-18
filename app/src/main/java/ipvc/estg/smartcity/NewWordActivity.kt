@@ -20,6 +20,7 @@ class NewWordActivity : AppCompatActivity() {
         titleNovo = findViewById(R.id.titleNovo)
         descricaoNova = findViewById(R.id.descricaoNova)
 
+
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
@@ -28,8 +29,10 @@ class NewWordActivity : AppCompatActivity() {
             } else {
                 val title = titleNovo.text.toString()
                 val descricao = descricaoNova.text.toString()
+                val intent = intent
                 replyIntent.putExtra(EXTRA_REPLY_title, title)
                 replyIntent.putExtra(EXTRA_REPLY_descricao, descricao)
+                replyIntent.putExtra(EXTRA_REPLY_intenta, intent)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
@@ -39,5 +42,6 @@ class NewWordActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_REPLY_title = "com.example.android.wordlistsql.REPLY_title"
         const val EXTRA_REPLY_descricao = "com.example.android.wordlistsql.REPLY_descricao"
+        const val EXTRA_REPLY_intenta = "com.example.android.wordlistsql.REPLY_intenta"
     }
 }

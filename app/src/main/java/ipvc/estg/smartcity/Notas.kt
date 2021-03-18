@@ -4,7 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
 
     private val newWordActivityRequestCode = 1
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +39,7 @@ class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@Notas, NewWordActivity::class.java)
-            startActivityForResult(intent, newWordActivityRequestCode)
+            resultInsertNote.launch(intent)
         }
 
 
@@ -45,26 +49,58 @@ class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
         WordViewModelFactory((application as WordsApplication).repository)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private var resultInsertNote = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
 
-        if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewWordActivity.EXTRA_REPLY_title)?.let { title->
-                data?.getStringExtra(NewWordActivity.EXTRA_REPLY_descricao)?.let { descricao->
-                val word = Word(titulo=title,descricao=descricao)
-                wordViewModel.insert(word)
-            } }
+
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data:Intent?=result.data
+            data?.getStringExtra(NewWordActivity.EXTRA_REPLY_title)?.let { title ->
+                data?.getStringExtra(NewWordActivity.EXTRA_REPLY_descricao)?.let { descricao ->
+                    val word = Word(titulo = title, descricao = descricao)
+                    wordViewModel.insert(word)
+                }
+            }
         } else {
             Toast.makeText(
-                applicationContext,
-                R.string.empty_not_saved,
-                Toast.LENGTH_LONG).show()
+                    applicationContext,
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show()
         }
     }
+
 
     override fun noteDelete(position: Int) {
         wordViewModel.allWords.value?.get(position)?.id?.let {
             wordViewModel.deleteNota(it)
+        }
+
+    }
+
+    override fun noteEdit(position: Int) {
+
+        val intent = Intent(this, EditNota::class.java).apply { putExtra("position",position) }
+
+        resultEditNote.launch(intent)
+    }
+
+    private var resultEditNote = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
+
+
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data:Intent?=result.data
+            data?.getStringExtra(EditNota.EXTRA_REPLY_title_edit)?.let { title ->
+                data.getStringExtra(EditNota.EXTRA_REPLY_descricao_edit)?.let { descricao ->
+                    data.getIntExtra(EditNota.EXTRA_REPLY_position, 0).let { id ->
+                        val word = Word(id = wordViewModel.allWords.value?.get(id)?.id, titulo = title, descricao = descricao)
+                        wordViewModel.editNota(word)
+                    }
+                }
+            }
+        } else {
+            Toast.makeText(
+                    applicationContext,
+                    R.string.empty_not_saved,
+                    Toast.LENGTH_LONG).show()
         }
     }
 

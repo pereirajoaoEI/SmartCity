@@ -23,4 +23,8 @@ class WordRepository(private val wordDao: WordDao) {
     suspend fun deleteNota(id: Int){
         wordDao.deleteNota(id)
     }
+
+    suspend fun updateNota(word: Word){
+        wordDao.updateNota(word)
+    }
 }

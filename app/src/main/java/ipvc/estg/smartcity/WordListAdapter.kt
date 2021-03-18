@@ -30,6 +30,7 @@ class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, Wor
 
         init {
             itemView.findViewById<Button>(R.id.apagar).setOnClickListener(this)
+            itemView.findViewById<Button>(R.id.editar).setOnClickListener(this)
         }
 
         fun bind(text: String?) {
@@ -41,15 +42,25 @@ class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, Wor
         }
 
         override fun onClick(v: View?) {
-            val position = adapterPosition
-            if(position!=RecyclerView.NO_POSITION){
-                listener.noteDelete(position)
+            if(v?.findViewById<Button>(R.id.apagar)?.isClickable==true) {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.noteDelete(position)
+                }
+            }
+
+            if(v?.findViewById<Button>(R.id.editar)?.isClickable==true) {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.noteEdit(position)
+                }
             }
         }
     }
 
     interface noteInterface{
         fun noteDelete(position: Int)
+        fun noteEdit(position: Int)
     }
 
     class WordsComparator : DiffUtil.ItemCallback<Word>() {

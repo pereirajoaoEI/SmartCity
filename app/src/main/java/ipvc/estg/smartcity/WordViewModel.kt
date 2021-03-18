@@ -21,6 +21,10 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
     fun deleteNota(id: Int) = viewModelScope.launch {
         repository.deleteNota(id)
     }
+
+    fun editNota(word: Word) = viewModelScope.launch {
+        repository.updateNota(word)
+    }
 }
 
 class WordViewModelFactory(private val repository: WordRepository) : ViewModelProvider.Factory {

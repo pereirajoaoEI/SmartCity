@@ -1,15 +1,12 @@
 package ipvc.estg.smartcity
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WordDao {
 
-    @Query("SELECT * FROM notas ORDER BY id ASC")
+    @Query("SELECT * FROM notas ORDER BY id DESC")
     fun getAlphabetizedWords(): Flow<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -20,5 +17,8 @@ interface WordDao {
 
     @Query("DELETE FROM notas where id == :id")
     suspend fun deleteNota(id: Int)
+
+    @Update
+    suspend fun updateNota(word: Word)
 
 }
