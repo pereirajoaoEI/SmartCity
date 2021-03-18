@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(Word::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Word::class), version = 2, exportSchema = false)
 abstract class WordRoomDatabase : RoomDatabase() {
 
     abstract fun wordDao(): WordDao
@@ -28,14 +28,14 @@ abstract class WordRoomDatabase : RoomDatabase() {
                     wordDao.deleteAll()
 
                     // Add sample words.
-                    var word = Word("Hello")
-                    wordDao.insert(word)
-                    word = Word("World!")
-                    wordDao.insert(word)
-
-                    // TODO: Add your own words!
-                    word = Word("TODO!")
-                    wordDao.insert(word)
+//                    var word = Word("Hello")
+//                    wordDao.insert(word)
+//                    word = Word("World!")
+//                    wordDao.insert(word)
+//
+//                    // TODO: Add your own words!
+//                    word = Word("TODO!")
+//                    wordDao.insert(word)
                 }
             }
         }
@@ -57,7 +57,7 @@ abstract class WordRoomDatabase : RoomDatabase() {
                     WordRoomDatabase::class.java,
                     "word_database"
                 )
-                    .addCallback(WordDatabaseCallback(scope))
+                    .fallbackToDestructiveMigration().addCallback(WordDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 // return instance

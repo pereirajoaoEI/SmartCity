@@ -10,21 +10,26 @@ import android.widget.EditText
 
 class NewWordActivity : AppCompatActivity() {
 
-    private lateinit var editWordView: EditText
+    private lateinit var titleNovo: EditText
+    private lateinit var descricaoNova: EditText
+
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
-        editWordView = findViewById(R.id.edit_word)
+        titleNovo = findViewById(R.id.titleNovo)
+        descricaoNova = findViewById(R.id.descricaoNova)
 
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(editWordView.text)) {
+            if (TextUtils.isEmpty(titleNovo.text)&&TextUtils.isEmpty(descricaoNova.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val word = editWordView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, word)
+                val title = titleNovo.text.toString()
+                val descricao = descricaoNova.text.toString()
+                replyIntent.putExtra(EXTRA_REPLY_title, title)
+                replyIntent.putExtra(EXTRA_REPLY_descricao, descricao)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
@@ -32,6 +37,7 @@ class NewWordActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY_title = "com.example.android.wordlistsql.REPLY_title"
+        const val EXTRA_REPLY_descricao = "com.example.android.wordlistsql.REPLY_descricao"
     }
 }

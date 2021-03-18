@@ -4,10 +4,12 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "word_table")
+@Entity(tableName = "notas")
 
 class Word(
-     @PrimaryKey @ColumnInfo(name = "word") val word: String
+     @PrimaryKey(autoGenerate = true) val id: Int? = null,
+     @ColumnInfo(name = "titulo") val titulo: String,
+     @ColumnInfo(name = "descricao") val descricao: String
 )
 
 

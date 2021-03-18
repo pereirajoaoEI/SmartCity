@@ -3,37 +3,53 @@ package ipvc.estg.smartcity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 
-class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
+class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        return WordViewHolder.create(parent)
+        val view: View = LayoutInflater.from(parent.context)
+                .inflate(R.layout.recyclerview_item, parent, false)
+        return WordViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.word)
+        holder.bind(current.titulo)
+        holder.descricao(current.descricao)
     }
 
-    class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val wordItemView: TextView = itemView.findViewById(R.id.textView)
+    inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        private val title: TextView = itemView.findViewById(R.id.titulo)
+        private val descricao: TextView = itemView.findViewById(R.id.descricao)
+
+        init {
+            itemView.findViewById<Button>(R.id.apagar).setOnClickListener(this)
+        }
 
         fun bind(text: String?) {
-            wordItemView.text = text
+            title.text = text
         }
 
-        companion object {
-            fun create(parent: ViewGroup): WordViewHolder {
-                val view: View = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.recyclerview_item, parent, false)
-                return WordViewHolder(view)
+        fun descricao(text: String?) {
+            descricao.text = text
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position!=RecyclerView.NO_POSITION){
+                listener.noteDelete(position)
             }
         }
+    }
+
+    interface noteInterface{
+        fun noteDelete(position: Int)
     }
 
     class WordsComparator : DiffUtil.ItemCallback<Word>() {
@@ -42,7 +58,7 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsC
         }
 
         override fun areContentsTheSame(oldItem: Word, newItem: Word): Boolean {
-            return oldItem.word == newItem.word
+            return oldItem.id== newItem.id
         }
     }
 }

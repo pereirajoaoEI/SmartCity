@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class Notas : AppCompatActivity() {
+class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
 
     private val newWordActivityRequestCode = 1
 
@@ -21,7 +21,7 @@ class Notas : AppCompatActivity() {
         setContentView(R.layout.notas)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = WordListAdapter()
+        val adapter = WordListAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -30,6 +30,8 @@ class Notas : AppCompatActivity() {
             words?.let { adapter.submitList(it) }
         })
 
+
+        //botao que muda de pagina
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@Notas, NewWordActivity::class.java)
@@ -47,15 +49,22 @@ class Notas : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let {
-                val word = Word(it)
+            data?.getStringExtra(NewWordActivity.EXTRA_REPLY_title)?.let { title->
+                data?.getStringExtra(NewWordActivity.EXTRA_REPLY_descricao)?.let { descricao->
+                val word = Word(titulo=title,descricao=descricao)
                 wordViewModel.insert(word)
-            }
+            } }
         } else {
             Toast.makeText(
                 applicationContext,
                 R.string.empty_not_saved,
                 Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun noteDelete(position: Int) {
+        wordViewModel.allWords.value?.get(position)?.id?.let {
+            wordViewModel.deleteNota(it)
         }
     }
 
