@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -29,8 +30,8 @@ class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, Wor
         private val descricao: TextView = itemView.findViewById(R.id.descricao)
 
         init {
-            itemView.findViewById<Button>(R.id.apagar).setOnClickListener(this)
-            itemView.findViewById<Button>(R.id.editar).setOnClickListener(this)
+            itemView.findViewById<ImageButton>(R.id.apagar).setOnClickListener(this)
+            itemView.findViewById<ImageButton>(R.id.editar).setOnClickListener(this)
         }
 
         fun bind(text: String?) {
@@ -42,14 +43,14 @@ class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, Wor
         }
 
         override fun onClick(v: View?) {
-            if(v?.findViewById<Button>(R.id.apagar)?.isClickable==true) {
+            if(v?.findViewById<ImageButton>(R.id.apagar)?.isClickable==true) {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     listener.noteDelete(position)
                 }
             }
 
-            if(v?.findViewById<Button>(R.id.editar)?.isClickable==true) {
+            if(v?.findViewById<ImageButton>(R.id.editar)?.isClickable==true) {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     listener.noteEdit(position)

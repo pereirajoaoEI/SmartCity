@@ -2,7 +2,11 @@
     <string name="app_name">Smart City</string>
     <string name="hint_word">Word...</string>
     <string name="button_save">Save</string>
-    <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="empty_not_saved">Nota não foi guardada porque continha campo(s) vazio(s).</string>
     <string name="add_word">Add word</string>
+    <string name="titulo">Título</string>
+    <string name="desc">Descrição</string>
+    <string name="save">Guardar</string>
+    <string name="bemvindo">Bem-vindo à SmartCity</string>
 
 </resources>

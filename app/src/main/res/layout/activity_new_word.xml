@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:minHeight="@dimen/min_height"
         android:fontFamily="sans-serif-light"
-        android:hint="titulo"
+        android:hint="@string/titulo"
         android:inputType="textAutoComplete"
         android:layout_margin="@dimen/big_padding"
         android:textSize="18sp" />
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:minHeight="@dimen/min_height"
         android:fontFamily="sans-serif-light"
-        android:hint="descricao"
+        android:hint="@string/desc"
         android:inputType="textAutoComplete"
         android:layout_margin="@dimen/big_padding"
         android:textSize="18sp" />
@@ -30,8 +30,8 @@
         android:id="@+id/button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:text="@string/button_save"
+        android:backgroundTint="@color/verde"
+        android:text="@string/save"
         android:layout_margin="@dimen/big_padding"
         android:textColor="@color/buttonLabel" />
 
