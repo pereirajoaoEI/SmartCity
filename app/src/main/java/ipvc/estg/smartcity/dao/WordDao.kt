@@ -3,7 +3,7 @@ package ipvc.estg.smartcity.dao
 import androidx.room.*
 import ipvc.estg.smartcity.entities.Word
 import kotlinx.coroutines.flow.Flow
-
+//teste
 @Dao
 interface WordDao {
 
