@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity">
+        <activity android:name=".Mapa"></activity>
         <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,8 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuLogado" />
-        <activity android:name=".Login">
-        </activity>
+        <activity android:name=".Login"></activity>
         <activity android:name=".NewWordActivity" />
         <activity android:name=".EditNota" />
         <activity android:name=".MainActivity" />
