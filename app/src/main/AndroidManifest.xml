@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ipvc.estg.smartcity">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".WordsApplication"
         android:allowBackup="true"
@@ -10,15 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCity">
-        <activity android:name=".NewWordActivity"></activity>
-        <activity android:name=".EditNota"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MenuLogado" />
+        <activity android:name=".Login">
+        </activity>
+        <activity android:name=".NewWordActivity" />
+        <activity android:name=".EditNota" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".Notas" />
     </application>
 

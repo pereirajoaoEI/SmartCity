@@ -8,5 +8,9 @@
     <string name="desc">Descrição</string>
     <string name="save">Guardar</string>
     <string name="bemvindo">Bem-vindo à SmartCity</string>
+    <string name="shared_preferences">SharedPreferences</string>
+    <string name="loged">loged</string>
+    <string name="username">username</string>
+
 
 </resources>
