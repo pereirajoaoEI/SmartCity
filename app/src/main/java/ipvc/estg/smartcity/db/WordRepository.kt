@@ -1,6 +1,8 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.db
 
 import androidx.annotation.WorkerThread
+import ipvc.estg.smartcity.dao.WordDao
+import ipvc.estg.smartcity.entities.Word
 import kotlinx.coroutines.flow.Flow
 
 // Declares the DAO as a private property in the constructor. Pass in the DAO

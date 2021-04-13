@@ -1,17 +1,18 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.notas
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ipvc.estg.smartcity.R
+import ipvc.estg.smartcity.entities.Word
 
 
-class WordListAdapter(private val listener:noteInterface): ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
+class WordListAdapter(private val listener: noteInterface): ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsComparator()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val view: View = LayoutInflater.from(parent.context)

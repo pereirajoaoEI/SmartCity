@@ -3,7 +3,6 @@ package ipvc.estg.smartcity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
 import android.widget.Button
@@ -12,6 +11,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
+import ipvc.estg.smartcity.notas.WordsApplication
+import ipvc.estg.smartcity.viewModel.WordViewModel
+import ipvc.estg.smartcity.viewModel.WordViewModelFactory
 
 class EditNota  : AppCompatActivity() {
 

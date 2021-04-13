@@ -1,10 +1,12 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import ipvc.estg.smartcity.dao.WordDao
+import ipvc.estg.smartcity.entities.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

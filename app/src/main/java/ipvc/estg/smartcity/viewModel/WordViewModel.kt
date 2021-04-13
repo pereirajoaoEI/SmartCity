@@ -1,6 +1,8 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.viewModel
 
 import androidx.lifecycle.*
+import ipvc.estg.smartcity.db.WordRepository
+import ipvc.estg.smartcity.entities.Word
 import kotlinx.coroutines.launch
 
 class WordViewModel(private val repository: WordRepository) : ViewModel() {

@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -13,6 +11,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import ipvc.estg.smartcity.entities.Word
+import ipvc.estg.smartcity.notas.WordListAdapter
+import ipvc.estg.smartcity.notas.WordsApplication
+import ipvc.estg.smartcity.viewModel.WordViewModel
+import ipvc.estg.smartcity.viewModel.WordViewModelFactory
 
 class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
 

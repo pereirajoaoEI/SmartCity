@@ -1,6 +1,8 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.notas
 
 import android.app.Application
+import ipvc.estg.smartcity.db.WordRepository
+import ipvc.estg.smartcity.db.WordRoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 

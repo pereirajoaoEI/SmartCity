@@ -1,6 +1,7 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.dao
 
 import androidx.room.*
+import ipvc.estg.smartcity.entities.Word
 import kotlinx.coroutines.flow.Flow
 
 @Dao

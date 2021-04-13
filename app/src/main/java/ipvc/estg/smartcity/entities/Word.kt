@@ -1,4 +1,4 @@
-package ipvc.estg.smartcity
+package ipvc.estg.smartcity.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
