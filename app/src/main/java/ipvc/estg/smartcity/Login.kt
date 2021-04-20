@@ -58,6 +58,7 @@ class Login : AppCompatActivity() {
                     override fun onResponse(call: Call<User>, response: Response<User>) {
                         if (response.isSuccessful) {
 
+                            val user = response.body()!!
 
                             val intent = Intent(this@Login, MenuLogado::class.java)
                             startActivity(intent)
@@ -69,6 +70,9 @@ class Login : AppCompatActivity() {
                             with(sessaoAuto.edit()) {
                                 putBoolean(getString(R.string.loged), true)
                                 putString(getString(R.string.username), nome)
+                                putInt(getString(R.string.id), user.id)
+                                Log.i("call", user.id.toString())
+
                                 apply()
                             }
                         }

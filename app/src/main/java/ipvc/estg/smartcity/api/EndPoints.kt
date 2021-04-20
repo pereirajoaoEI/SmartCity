@@ -9,8 +9,13 @@ interface EndPoints {
     @POST("userverification")
     fun verifyUsers(@Field("username")username:String, @Field("password")password:String): retrofit2.Call<User>
 
-//    @GET("/user/{id}")
-//    fun getUserById(@Path("id") id: Int): Call<User>
+    @GET("users/anomalias")
+    fun getAllAnomalias(): retrofit2.Call<List<Markers>>
+
+
+    //filtro
+    @GET("myuser/{id}/anomalias")
+    fun getAllUserAnomalias(@Path("id")id_username:Int): retrofit2.Call<List<Markers>>
 
 //    @FormUrlEncoded
 //    @POST("/posts")
