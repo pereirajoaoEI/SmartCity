@@ -59,7 +59,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
 
 
 
-        //Filtro por users
+        //Filtro por users..
         val sessaoAuto: SharedPreferences = getSharedPreferences(
             getString(R.string.shared_preferences),
             Context.MODE_PRIVATE
