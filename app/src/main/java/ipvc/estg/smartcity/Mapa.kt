@@ -9,6 +9,4 @@ class Mapa : AppCompatActivity() {
         setContentView(R.layout.activity_mapa)
         //boas
     }
-
-    //ola
 }
