@@ -13,6 +13,18 @@
     <string name="username">username</string>
     <string name="id">id</string>
     <string name="title_activity_mapa">Map</string>
+    <string name="insert_anomalia_pagina">Inserção de Anomalias</string>
+    <string name="insert_anomalia_titulo">Título</string>
+    <string name="insert_anomalia_descricao">Descrição</string>
+    <string name="insert_anomalia_foto">Foto</string>
+    <string name="insert_anomalia_adicionar">Adicionar Anomalia</string>
+    <string name="insert_anomalia_adicionarfoto">Adicionar Foto </string>
+    <string name="insert_anomalia_tipo">Tipo</string>
+    <string-array name="type_array">
+        <item>Transito</item>
+        <item>Danificacoes</item>
+        <item>Outros</item>
+    </string-array>
 
 
 </resources>

@@ -6,7 +6,7 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     tools:context=".MarkerInfo"
-    android:background="#E6f8f5f1">
+    android:background="#f8f5f1">
 
     <TextView
         android:id="@+id/tituloMarker"
@@ -21,49 +21,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/descMarker"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginLeft="8dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:layout_marginRight="8dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tituloMarker" />-->
-
-<!--    <ImageView-->
-<!--        android:id="@+id/foto"-->
-<!--        android:layout_width="4dp"-->
-<!--        android:layout_height="3dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/descMarker" />-->
-
     <TextView
-        android:id="@+id/user"
+        android:id="@+id/descMarker"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloMarker" />
 
+
+
     <Button
-        android:id="@+id/ver"
+        android:id="@+id/apagar"
         android:layout_width="200dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
-        android:text="Ver"
+        android:text="Apagar"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user" />
+        app:layout_constraintTop_toBottomOf="@+id/descMarker" />
 </androidx.constraintlayout.widget.ConstraintLayout>
