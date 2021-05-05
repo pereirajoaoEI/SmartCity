@@ -50,7 +50,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
     }
     private lateinit var lastLocation: Location
 
-
+//
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
