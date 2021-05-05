@@ -6,29 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Mapa"
-    />
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Mapa"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="169dp"
         android:layout_height="26dp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="80dp"
         android:background="@color/verde"
         android:checked="false"
         android:text="@string/pertodemim"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <RelativeLayout
         android:id="@+id/layout"
@@ -39,9 +40,8 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1">
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent">
 
     </RelativeLayout>
 

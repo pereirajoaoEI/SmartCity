@@ -1,5 +1,6 @@
 package ipvc.estg.smartcity.api
 
+
 import com.google.android.gms.maps.model.LatLng
 import java.sql.Blob
 
@@ -8,6 +9,7 @@ data class User(
     val username: String,
     val password: String
 )
+
 
 data class Markers(
         val id: Int,

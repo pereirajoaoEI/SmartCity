@@ -36,4 +36,9 @@ interface EndPoints {
     @GET("anomalias/{tipo}")
     fun getAllAnomaliasTipo(@Path("tipo")tipo:String): retrofit2.Call<List<Markers>>
 
+
+    @GET("deleAnomalia/{id}")
+    fun eliminarAnomalia(
+            @Path("id") id: Int
+    ): retrofit2.Call<Markers>
 }

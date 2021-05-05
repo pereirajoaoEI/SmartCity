@@ -65,14 +65,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        val switchDistancia = findViewById<Switch>(R.id.switch1)
-        switchDistancia.setOnCheckedChangeListener { _, isCheked ->
-            if (isCheked) {
-                filtroDistancia()
-            } else {
-                onMapReady(map)
-            }
-        }
+
 
 
         val layout = findViewById<RelativeLayout>(R.id.layout)
@@ -81,6 +74,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
         geek1.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         geek1.setText("Transito") //setting text of first radio button
         geek1.id = 0
+
 
         val geek2 = RadioButton(this)
         geek2.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -96,6 +90,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
         geek4.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         geek4.setText("Todos") //setting text of first radio button
         geek4.id = 3
+        geek4.setChecked(true)
 
         val radioGroup = RadioGroup(this)
         val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -108,6 +103,18 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
         radioGroup.addView(geek4)
         layout.addView(radioGroup)
 
+
+        val switchDistancia = findViewById<Switch>(R.id.switch1)
+        switchDistancia.setOnCheckedChangeListener { _, isCheked ->
+            if (isCheked) {
+                filtroDistancia()
+                geek4.setChecked(true)
+            } else {
+                onMapReady(map)
+
+            }
+        }
+
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId){
                 0 -> getTransito()
@@ -115,8 +122,13 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
                 2 -> getOutros()
                 3 -> onMapReady(map)
             }
+            switchDistancia.setChecked(false)
         }
+
+
     }
+
+
 
 
     fun getTransito() {
@@ -290,6 +302,7 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
         map.getUiSettings().setZoomControlsEnabled(true)
         map.setOnMarkerClickListener(this)
         map.mapType = GoogleMap.MAP_TYPE_SATELLITE
+        map.clear()
         setUpMap()
 
 
@@ -351,13 +364,19 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
 
                         if(i.login_id.equals(sessaoAuto.all[getString(R.string.id)])) {
 
-                            map.addMarker(MarkerOptions()
+                            val marker: Marker? =
+                                    map.addMarker(MarkerOptions()
                                     .position(latlong)
                                     .title(i.titulo)
                                     .snippet(i.tipo)
                                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
+
+                            marker?.tag=i
                         }else{
-                            map.addMarker(MarkerOptions().position(latlong).title(i.titulo).snippet(i.descricao))
+                            val marker: Marker? =
+                                    map.addMarker(MarkerOptions().position(latlong).title(i.titulo).snippet(i.descricao))
+                            marker?.tag=i
+
 
 
                         }
@@ -372,11 +391,11 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
 
 
 
+
         map.setOnMarkerClickListener {
             map.setInfoWindowAdapter(MarkerInfo(this))
             false
         }
-
 
     }
 
@@ -409,7 +428,9 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
             R.id.inserir -> {
                 val intent = Intent(this, InsertAnomalia::class.java)
                 startActivity(intent)
+                finish()
                 true
+
             }
 
             else -> super.onOptionsItemSelected(item)

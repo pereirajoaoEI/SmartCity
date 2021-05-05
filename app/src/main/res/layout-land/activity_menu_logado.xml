@@ -11,21 +11,21 @@
         android:id="@+id/mapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bemVindo" />
 
+
     <ImageButton
         android:id="@+id/notas"
         android:layout_width="75dp"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/logout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapa"
         app:srcCompat="@drawable/ic_baseline_sticky_note_2_24"
@@ -35,25 +35,24 @@
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="Logout"
         app:layout_constraintBottom_toTopOf="@+id/circularProgressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notas" />
 
     <TextView
         android:id="@+id/bemVindo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="8dp"
         android:text=""
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <com.mikhaellopez.circularprogressbar.CircularProgressBar
         android:id="@+id/circularProgressBar"
@@ -92,7 +91,7 @@
         android:id="@+id/tv_square"
         android:layout_width="164dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="52dp"
         android:background="@color/verdeClaro"
         android:gravity="center"
         android:text="TextView"
@@ -100,7 +99,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintHorizontal_bias="0.654"
         app:layout_constraintStart_toEndOf="@+id/circularProgressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

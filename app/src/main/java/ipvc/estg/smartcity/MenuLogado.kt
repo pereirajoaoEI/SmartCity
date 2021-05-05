@@ -132,10 +132,10 @@ class MenuLogado : AppCompatActivity(), SensorEventListener {
                 translationY = upDown * -10
             }
 
-            val color = if (upDown.toInt() == 0 && sides.toInt() == 0) Color.GREEN else Color.RED
+            val color = if (upDown.toInt() == 0 && sides.toInt() == 0) Color.TRANSPARENT else Color.GREEN
             square.setBackgroundColor(color)
 
-            square.text="up/down ${upDown.toInt()}\nleft/right ${sides.toInt()}"
+            square.text="Cima/Baixo ${upDown.toInt()}\nDireita/Esquerda ${sides.toInt()}"
         }
     }
 
