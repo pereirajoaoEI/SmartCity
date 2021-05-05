@@ -79,6 +79,8 @@ class MenuLogado : AppCompatActivity(), SensorEventListener {
     }
 
 
+    //sensores
+
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun setUpSensorStuff(){
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
