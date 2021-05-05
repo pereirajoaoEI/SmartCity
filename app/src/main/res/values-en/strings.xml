@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart City</string>
+    <string name="empty_not_saved">Note not saved</string>
+    <string name="titulo">Title</string>
+    <string name="desc">Description</string>
+    <string name="save">Save</string>
+    <string name="bemvindo">Welcome to Smart City</string>
+    <string name="insert_anomalia_pagina">"Add Anomaly "</string>
+    <string name="insert_anomalia_titulo">Title</string>
+    <string name="insert_anomalia_descricao">Description</string>
+    <string name="insert_anomalia_foto">Photo</string>
+    <string name="insert_anomalia_adicionar">Add  Anomaly</string>
+    <string name="insert_anomalia_adicionarfoto">Add Photo</string>
+    <string name="insert_anomalia_tipo">Type</string>
+    <string name="pertodemim">Near me</string>
+    <string name="utilizador">User</string>
+    <string name="transito">Transit</string>
+    <string name="danificacoes">Damage</string>
+    <string name="outros">Others</string>
+    <string name="todos">All</string>
+    <string name="mapa">Map</string>
+    <string name="confirmar" translatable="false">Confirm</string>
+    <string name="bemvindouser">Welcome</string>
+    <string name="inserirAnomalia">Insert Anomaly</string>
+</resources>

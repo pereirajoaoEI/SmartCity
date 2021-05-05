@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">Smart City</string>
-    <string name="hint_word">Word...</string>
-    <string name="button_save">Save</string>
+    <string name="hint_word" translatable="false">Word...</string>
+    <string name="button_save" translatable="false">Save</string>
     <string name="empty_not_saved">Nota não foi guardada porque continha campo(s) vazio(s).</string>
-    <string name="add_word">Add word</string>
+    <string name="add_word" translatable="false">Add word</string>
     <string name="titulo">Título</string>
     <string name="desc">Descrição</string>
     <string name="save">Guardar</string>
     <string name="bemvindo">Bem-vindo à SmartCity</string>
-    <string name="shared_preferences">SharedPreferences</string>
-    <string name="loged">loged</string>
-    <string name="username">username</string>
-    <string name="id">id</string>
-    <string name="title_activity_mapa">Map</string>
+    <string name="shared_preferences" translatable="false">SharedPreferences</string>
+    <string name="loged" translatable="false">loged</string>
+    <string name="username" translatable="false">username</string>
+    <string name="id" translatable="false">id</string>
+    <string name="title_activity_mapa" translatable="false">Map</string>
     <string name="insert_anomalia_pagina">Inserção de Anomalias</string>
     <string name="insert_anomalia_titulo">Título</string>
     <string name="insert_anomalia_descricao">Descrição</string>
@@ -21,6 +21,18 @@
     <string name="insert_anomalia_adicionarfoto">Adicionar Foto </string>
     <string name="insert_anomalia_tipo">Tipo</string>
     <string name="pertodemim">Perto de mim</string>
+    <string name="utilizador">Utilizador</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="transito">Transito</string>
+    <string name="danificacoes">Danificacoes</string>
+    <string name="outros">Outros</string>
+    <string name="todos">Todos</string>
+    <string name="mapa">Mapa</string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="bemvindouser">Bem-vind@</string>
+    <string name="inserirAnomalia">Inserir Anomalia</string>
+
     <string-array name="type_array">
         <item>Transito</item>
         <item>Danificacoes</item>

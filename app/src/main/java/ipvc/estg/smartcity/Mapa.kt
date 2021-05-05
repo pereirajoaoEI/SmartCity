@@ -72,23 +72,23 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
 
         val geek1 = RadioButton(this)
         geek1.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        geek1.setText("Transito") //setting text of first radio button
+        geek1.setText(R.string.transito) //setting text of first radio button
         geek1.id = 0
 
 
         val geek2 = RadioButton(this)
         geek2.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        geek2.setText("Danificacoes") //setting text of first radio button
+        geek2.setText(R.string.danificacoes) //setting text of first radio button
         geek2.id = 1
 
         val geek3 = RadioButton(this)
         geek3.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        geek3.setText("Outros") //setting text of first radio button
+        geek3.setText(R.string.outros) //setting text of first radio button
         geek3.id = 2
 
         val geek4 = RadioButton(this)
         geek4.layoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        geek4.setText("Todos") //setting text of first radio button
+        geek4.setText(R.string.todos) //setting text of first radio button
         geek4.id = 3
         geek4.setChecked(true)
 

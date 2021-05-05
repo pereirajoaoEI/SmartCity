@@ -15,6 +15,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
@@ -40,7 +41,7 @@ class MenuLogado : AppCompatActivity(), SensorEventListener {
             getString(R.string.shared_preferences),
             Context.MODE_PRIVATE
         )
-       bemVindo.setText("Bem-vindo "+sessaoAuto.getString("username", null)+" !")
+       bemVindo.setText(getString(R.string.bemvindouser)+" "+sessaoAuto.getString("username", null)+" !")
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         text = findViewById(R.id.tv_text)
@@ -76,6 +77,8 @@ class MenuLogado : AppCompatActivity(), SensorEventListener {
             startActivity(intent)
             finish()
         }
+
+
     }
 
 
