@@ -53,6 +53,8 @@ class InsertAnomalia : AppCompatActivity() {
             spinner.adapter = adapter
         }
 
+
+        //inserção
         inserir.setOnClickListener{
             if (ActivityCompat.checkSelfPermission(this,
                     android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
