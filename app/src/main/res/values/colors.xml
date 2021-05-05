@@ -11,6 +11,9 @@
     <color name="transparent">#00FF0088</color>
     <color name="verde">#4f9d40</color>
     <color name="verdeClaro">#8BC34A</color>
+    <color name="azul">#19A2AA</color>
+    <color name="azul2">#19A2AA</color>
+    <color name="azul3">#19A2AA</color>
 
 
 </resources>
