@@ -85,7 +85,7 @@ class Notas : AppCompatActivity(), WordListAdapter.noteInterface {
 
         resultEditNote.launch(intent)
     }
-
+//
     private var resultEditNote = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result->
 
 
