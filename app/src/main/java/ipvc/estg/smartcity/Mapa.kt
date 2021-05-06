@@ -480,20 +480,15 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback,
                                                 .position(position)
                                                 .title(anomalia.titulo)
                                                 .snippet("Distancia: " + results[0].roundToInt() + " metros")
-                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)))
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)))
 
-                                    } else if (calcularDistancia(location.latitude, location.longitude, anomalia.lat, anomalia.longi) < 2000) {
-                                        map.addMarker(MarkerOptions()
-                                                .position(position)
-                                                .title(anomalia.titulo)
-                                                .snippet("Distancia: " + results[0].roundToInt() + " metros")
-                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
+                                    
                                     } else {
                                         map.addMarker(MarkerOptions()
                                                 .position(position)
                                                 .title(anomalia.titulo)
                                                 .snippet("Distancia: " + results[0].roundToInt() + " metros")
-                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)))
+                                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
                                     }
                                 }
                             }

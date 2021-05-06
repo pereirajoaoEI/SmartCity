@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -84,43 +85,50 @@ class InsertAnomalia : AppCompatActivity() {
                         spinnerAnomalia = findViewById(R.id.spinner)
 
 
-                        val titulo = editTextTitle.text.toString()
-                        val descricao = editTextDesc.text.toString()
-                        val foto = ""
-                        val login_id = id
-                        val lat = lastLocation.latitude
-                        val longi = lastLocation.longitude
-                        val spinnerVal= spinnerAnomalia.selectedItem.toString()
 
 
 
-                        Log.i("latitude", lat.toString())
-                        Log.i("longitude", longi.toString())
-                        Log.i("login_id", login_id.toString())
-                        Log.i("titulo", titulo)
-                        Log.i("descricao", descricao)
-                        Log.i("spinner", spinnerVal)
-
-                        val request = ServiceBuilder.buildService(EndPoints::class.java)
-                        val call = request.criarAnomalias(titulo,descricao,lat.toString(),longi.toString(),foto,login_id.toString().toInt(),spinnerVal)
+                            val titulo = editTextTitle.text.toString()
+                            val descricao = editTextDesc.text.toString()
+                            val foto = ""
+                            val login_id = id
+                            val lat = lastLocation.latitude
+                            val longi = lastLocation.longitude
+                            val spinnerVal = spinnerAnomalia.selectedItem.toString()
 
 
-                        call.enqueue(object : Callback<Markers> {
-                            override fun onResponse(call: Call<Markers>, response: Response<Markers>) {
-                                if (response.isSuccessful) {
-                                    Toast.makeText(this@InsertAnomalia, "Adicionado Com Sucesso!", Toast.LENGTH_SHORT).show()
 
+                            Log.i("latitude", lat.toString())
+                            Log.i("longitude", longi.toString())
+                            Log.i("login_id", login_id.toString())
+                            Log.i("titulo", titulo)
+                            Log.i("descricao", descricao)
+                            Log.i("spinner", spinnerVal)
+
+                            val request = ServiceBuilder.buildService(EndPoints::class.java)
+                            val call = request.criarAnomalias(titulo, descricao, lat.toString(), longi.toString(), foto, login_id.toString().toInt(), spinnerVal)
+
+                             if (TextUtils.isEmpty(editTextTitle.text) || TextUtils.isEmpty(editTextDesc.text)) {
+                            Toast.makeText(this, R.string.preencacampos, Toast.LENGTH_SHORT).show()
+                            }else {
+
+                            call.enqueue(object : Callback<Markers> {
+                                override fun onResponse(call: Call<Markers>, response: Response<Markers>) {
+                                    if (response.isSuccessful) {
+                                        Toast.makeText(this@InsertAnomalia, R.string.adicionado, Toast.LENGTH_SHORT).show()
+
+                                    }
+
+                                    val intent = Intent(this@InsertAnomalia, Mapa::class.java)
+                                    startActivity(intent)
+                                    finish()
                                 }
 
-                                val intent = Intent(this@InsertAnomalia, Mapa::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-
-                            override fun onFailure(call: Call<Markers>?, t: Throwable?) {
-                                Toast.makeText(applicationContext, t!!.message, Toast.LENGTH_SHORT).show()
-                            }
-                        })
+                                override fun onFailure(call: Call<Markers>?, t: Throwable?) {
+                                    Toast.makeText(applicationContext, t!!.message, Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                        }
                     }
                 }
             }

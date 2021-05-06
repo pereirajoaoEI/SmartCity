@@ -32,6 +32,12 @@
     <string name="confirmar">Confirmar</string>
     <string name="bemvindouser">Bem-vind@</string>
     <string name="inserirAnomalia">Inserir Anomalia</string>
+    <string name="adicionado">Adicionado com sucesso!</string>
+    <string name="preencacampos">Por favor preencha todos os campos!</string>
+    <string name="cimabaixo">Cima/Baixo</string>
+    <string name="esquerdadireita">Esquerda/Direita</string>
+
+
 
     <string-array name="type_array">
         <item>Transito</item>

@@ -43,7 +43,7 @@ class EditNota  : AppCompatActivity() {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
                 wordViewModel.allWords.observe(this) { notas-> titleEdit.text=SpannableStringBuilder(notas[position].titulo)
                     descricaoEdit.text=SpannableStringBuilder(notas[position].descricao)}
-                Toast.makeText(this, "Por favor preencha todos os campos!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.preencacampos, Toast.LENGTH_SHORT).show()
             } else {
                 val title = titleEdit.text.toString()
                 val descricao = descricaoEdit.text.toString()

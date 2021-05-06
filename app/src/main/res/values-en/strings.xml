@@ -23,4 +23,8 @@
     <string name="confirmar" translatable="false">Confirm</string>
     <string name="bemvindouser">Welcome</string>
     <string name="inserirAnomalia">Insert Anomaly</string>
+    <string name="adicionado">Added with sucess!</string>
+    <string name="preencacampos">Please fill all the fields!</string>
+    <string name="cimabaixo">Up/Down</string>
+    <string name="esquerdadireita">Left/Right</string>
 </resources>
